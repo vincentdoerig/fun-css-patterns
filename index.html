@@ -10,7 +10,7 @@
   <style>
     html {
       background-color: #3498db;
-      background-image: url('/patterns/macaron.png');
+      background-image: url('patterns/macaron.png');
       background-repeat: repeat;
       background-size: 140px 140px;
     }
@@ -80,7 +80,7 @@
     <span class="property">background-repeat:</span> repeat;
     <span class="property">background-size:</span> 140px 140px;
     </code></pre>
-    <form id="download-form" method="get" action="/patterns/macaron.png">
+    <form id="download-form" method="get" action="patterns/macaron.png">
       <button type="submit">Download File <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -101,9 +101,9 @@
     const form = document.getElementById('download-form')
     const body = document.getElementsByTagName('html')[0]
     function changePattern(name) {
-      body.style.backgroundImage = `url("/patterns/${name}.png")`
+      body.style.backgroundImage = `url("patterns/${name}.png")`
       pattern.innerText = name
-      form.setAttribute('action', `/patterns/${name}.png`)
+      form.setAttribute('action', `patterns/${name}.png`)
       switch (name) {
         case 'lemon':
           body.style.backgroundColor = '#8e44ad'

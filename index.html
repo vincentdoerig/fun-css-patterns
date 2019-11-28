@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fun CSS Patterns</title>
+  <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
+  <style>
+    html {
+      background-color: #3498db;
+      background-image: url('/patterns/macaron.png');
+      background-repeat: repeat;
+      background-size: 140px 140px;
+    }
+
+    body {
+      background: hsla(0, 0%, 90%, 0.7);
+      padding: 10px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    h1 {
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .control {
+      margin: 10px auto;
+    }
+
+    code {
+      background-color: #1C2434;
+      color: #FFAB40;
+      border-radius: 6px;
+    }
+
+    .property {
+      color: #20C0D7;
+    }
+
+    form {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Fun CSS Patterns</h1>
+    <div class="controls">
+      <p class="control">Choose a pattern</p>
+      <button class="control" onclick="changePattern('macaron')">Macaron</button>
+      <button class="control" onclick="changePattern('lemon')">Lemon</button>
+      <button class="control" onclick="changePattern('cup')">Cup</button>
+      <button class="control" onclick="changePattern('pencil')">Pencil</button>
+    </div>
+  </header>
+
+  <main>
+    <h2><a id="how-to-use" href="#how-to-use" aria-hidden="true"></a>How to use</h2>
+    <pre><code>
+   <span class="property"> background:</span> url('/pattern/<span id="pattern">macaron</span>.png');
+    <span class="property">background-repeat:</span> repeat;
+    <span class="property">background-size:</span> 140px 140px;
+    </code></pre>
+    <form id="download-form" method="get" action="/patterns/macaron.png">
+      <button type="submit">Download File</button>
+    </form>
+    <h2><a id="credits" href="#credits" aria-hidden="true"></a>Credits</h2>
+    <ul>
+      <li>Lemon by <a href="https://unsplash.com/@nicepear">Nicepear Jakarta</a> on Unsplash</li>
+      <li>Macaron by <a href="https://unsplash.com/@heatherbarnes">Heather Barnes</a> on Unsplash</li>
+      <li>Cup and pencil by <a href="https://unsplash.com/@joannakosinska">Joanna Kosinska</a> on Unsplash</li>
+    </ul>
+  </main>
+
+  <script>
+    const pattern = document.getElementById('pattern')
+    const form = document.getElementById('download-form')
+    const body = document.getElementsByTagName('html')[0]
+    function changePattern(name) {
+      body.style.backgroundImage = `url("/patterns/${name}.png")`
+      pattern.innerText = name
+      form.setAttribute('action', `/patterns/${name}.png`)
+      switch (name) {
+        case 'lemon':
+          body.style.backgroundColor = '#8e44ad'
+          break
+        case 'cup':
+          body.style.backgroundColor = '#e67e22'
+          break
+        case 'pencil':
+          body.style.backgroundColor = '#2c3e50'
+          break
+
+        default:
+          body.style.backgroundColor = '#3498db'
+          break
+      }
+    }
+  </script>
+
+</body>
+
+</html>
